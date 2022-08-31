@@ -50,5 +50,147 @@ git config --global user.email yourmail@example.com
 ***Вопрос:*** "Зачем файлы разделены на изменённые и индексированные, если всё равно чаще всего проблему добавления решают командой ```git add .```?" Всё это сделано для того, чтобы в репозиторий попадали только те файлы, которые по нашему мнению действительно нужны проекту. Поэтому, как говорят англоманы, best practic является использование команды ```git status``` перед и добавлением в индекс, и, тем более, коммитом. По списку можно будет понять, что система "увидела" медиафайлы, которые не являются частью разрабатываемого приложения. Или какая-нибудь "мусорная" или конфиденциальная информация как данные IDE или адреса реальных людей. Увидев это всё, мы быстренько внесём изменения в ```.gitignore``` и избежим сложной процедуры удаления нежелательных данных из репозитория.
 
 Собственно, на этом можно считать, что GIT для индивидуального локального пользования освоен и в рамках локальной машины уже можно не волноваться, что проект куда-то денется. Однако, если вспомнить, что этот некультурный финн по гражданству и швед по национальности...
-![FuNVIDIA](../../../img/torvalds-nvidia.jpg "Икона OpenSource")
+<!-- ![FuNVIDIA](../../../img/torvalds-nvidia.jpg "Икона OpenSource") -->
 ...создавал систему для совместного использования, то она предполагает прежде всего работу в команде. А так как архитектура была продумана хорошо, то размер команды значения не имеет. В [следующей статье](scv2.md)  определим базовую последовательность и возможные проблемы при работе с удалённым репозиторием.
+
+**HEAD** - в простейшем случае можно считать, что это указатель на последний коммит. Ну а если более развёрнуто, то он указывает на текущую ветку. И в дальнейшем, когда мы будем говорить о ветвлении, мы упомянем, что как раз смена ветки технически обозначает куда будет переставлен этот указатель.
+
+## Перемещение между коммитами
+
+GIT позволяет посмотреть список предыдущих снимков и перейти к определённому. 
+
+Итак команда ```git log``` её вывод выглядит примерно так
+
+```bash
+$ git log
+commit 25d1be668b5cdac4c603686df2a29e40c4b7993f (HEAD -> master, origin/master, gitlab/master)
+Author: boyko1989 <hunwiss89@gmail.com>
+Date:   Wed Aug 31 21:38:45 2022 +0400
+
+    Test for GitHub
+
+commit 11503cc98ebfff24850453709c88054b7842d8b0
+Author: boyko1989 <hunwiss89@gmail.com>
+Date:   Wed Aug 31 14:50:36 2022 +0400
+
+    Играемся
+
+commit d4f453b85a6934490d6e29ecef3c66b8dc2c1fe4
+Author: Pavel <hunwiss89@gmail.com>
+Date:   Wed Aug 31 13:52:22 2022 +0400
+
+    GIT INIT
+
+```
+
+Сверху располагается самый последний коммит. Его хэш в полном виде - это верхняя строка. Также текущий коммит обозначен указателем HEAD. Также видим здесь стрелочкой указана ветка, а также имя подключения. В информации о каждом коммите указан автор и дата. Внутри системы, конечно она хранится в формате UNIX-time. Ну и отдельно представлен комментарий.
+
+Много всего - нужно покороче. И такая возможность есть у нас:
+
+```bash
+$ git log --pretty=oneline
+25d1be668b5cdac4c603686df2a29e40c4b7993f (HEAD -> master, origin/master, gitlab/master) Test for GitHub
+11503cc98ebfff24850453709c88054b7842d8b0 Играемся
+d4f453b85a6934490d6e29ecef3c66b8dc2c1fe4 GIT INIT
+```
+Как видно в таком симпатичном (pretty) формате в одну строку (one line) гораздо проще воспринимать. Однако можно ещё интереснее представить - в виде графа.
+
+```bash
+$ git log --graph
+* commit 25d1be668b5cdac4c603686df2a29e40c4b7993f (HEAD -> master, origin/master, gitlab/master)
+| Author: boyko1989 <hunwiss89@gmail.com>
+| Date:   Wed Aug 31 21:38:45 2022 +0400
+|
+|     Test for GitHub
+|
+* commit 11503cc98ebfff24850453709c88054b7842d8b0
+| Author: boyko1989 <hunwiss89@gmail.com>
+| Date:   Wed Aug 31 14:50:36 2022 +0400
+|
+|     Играемся
+|
+* commit d4f453b85a6934490d6e29ecef3c66b8dc2c1fe4
+  Author: Pavel <hunwiss89@gmail.com>
+  Date:   Wed Aug 31 13:52:22 2022 +0400
+
+      GIT INIT
+
+```
+
+Всю силу данного варианта можно будет понять, когда мы подробнее познакомимся с ветками.
+
+Что касается перемещения между коммитами, то делается это очень просто:
+```bash
+$ git checkout 11503cc98ebfff
+Note: switching to '11503cc98ebfff'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c <new-branch-name>
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+HEAD is now at 11503cc Играемся
+
+```
+
+Как видим, не обязательно вводить полный хэш - хотя бы такую часть, которую система точно определит как тот или иной коммит. Здесь мы видим уточнение про какой-то 'detached HEAD' - это означает, что мы переместились на определённый коммит, а не на ветку. И команда ```git log --pretty=oneline``` покажет нам следующее:
+
+```bash
+$ git log --pretty=oneline
+11503cc98ebfff24850453709c88054b7842d8b0 (HEAD) Играемся
+d4f453b85a6934490d6e29ecef3c66b8dc2c1fe4 GIT INIT
+```
+
+Ради эксперимента изменим что-нибудь в тексте и посмотрим, что будет. 
+
+Итак, добавили строку в файл, добавили, закоммитили. Он предупреждает, что мы работаем с 'detached HEAD', но коммит делает.
+
+Ну и пытаемся вернуться обратно на изначальную "верхушку" репозитория:
+
+```bash
+$ git checkout master
+Warning: you are leaving 2 commits behind, not connected to
+any of your branches:
+
+  98f9af3 Эксперимент
+  ccc36af экс
+
+If you want to keep them by creating a new branch, this may be a good time
+to do so with:
+
+ git branch <new-branch-name> 98f9af3
+
+Switched to branch 'master'
+Your branch is up to date with 'gitlab/master'.
+
+```
+И логи:
+
+```bash
+$ git log --pretty=oneline
+25d1be668b5cdac4c603686df2a29e40c4b7993f (HEAD -> master, origin/master, gitlab/master) Test for GitHub
+11503cc98ebfff24850453709c88054b7842d8b0 Играемся
+d4f453b85a6934490d6e29ecef3c66b8dc2c1fe4 GIT INIT
+```
+
+У нас было два коммита и мы их потеряли, так как они были "leaving 2 commits behind, not connected to any of your branches", то есть неприсоединены ни к одной ветке. Так что намного лучше, если мы при переходе на конкретный коммит создаём ветку и работаем с ней, а потом всё сливаем в мастер. Но об этом позже.
+## Проблемы
+
+Самая смешная проблема - это когда посде добавления файлов в индекс перед коммитом, система выдаёт такое предупреждение:
+
+```bash
+git add .
+warning: in the working copy of 'example', LF will be replaced by CRLF the next time Git touches it
+```
+
+Это предупреждение вызвано тем, что в Linux и Windows немного по разному формляется конец строки.
