@@ -20,7 +20,7 @@ GIT - это **распределённая система** контроля в
 Единственное, что нужно будет сделать - это внести данные в глобальные переменные GIT:
 ```bash
 git config --global user.name "{Your GitHub/Gitlab username}"
-git config --global user.email ypurmail@example.com
+git config --global user.email yourmail@example.com
 ```
 В противном случае каждый коммит, а затем пуш, система будет требовать от нас эти данные. Полный список всех настроек можно посмотреть так ```git config --list --show-origin```
 
