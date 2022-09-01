@@ -49,8 +49,48 @@ upstream, see 'push.autoSetupRemote' in 'git help config'.
 
 Если у нас были какие-то pull request между этими ветками, то всё исчезает и мы видим единую историю в master, в которой будут видны все наши действия по работе во "младшей" ветке.
 
-Однако представим себе ситуацию, при которой кто-то внёс коммит в ветку, в которой мы  закоммитили тот же файл. Этот кто-то залил на GitHub эти изменения и теперь, когды мы пытаемся запушиться, получаем следующую картину:
+Однако представим себе ситуацию, при которой кто-то внёс коммит в ветку, в которой мы  закоммитили тот же файл, в котором поменял ТУ ЖЕ строку (или строки). Этот кто-то залил на GitHub эти изменения и теперь, когды мы пытаемся запушиться, получаем следующее:
 
+```bash 
+
+$ git push
+To github.com:boyko1989/ITCO.git
+ ! [rejected]        draft -> draft (fetch first)
+error: failed to push some refs to 'github.com:boyko1989/ITCO.git'
+hint: Updates were rejected because the remote contains work that you do
+hint: not have locally. This is usually caused by another repository pushing
+hint: to the same ref. You may want to first integrate the remote changes
+hint: (e.g., 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+
+# Говорит, что на удалённом репозитории есть контент, которого нет в локальном репозитории, поэтому нужно сделать git pull - делаем
+
+$ git pull
+remote: Enumerating objects: 11, done.
+remote: Counting objects: 100% (11/11), done.
+remote: Compressing objects: 100% (5/5), done.
+remote: Total 6 (delta 3), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (6/6), 868 bytes | 11.00 KiB/s, done.
+From github.com:boyko1989/ITCO
+   2c1ed60..f34dacb  draft      -> origin/draft
+Auto-merging administration/devops/git/scv3.md
+CONFLICT (content): Merge conflict in administration/devops/git/scv3.md
+Automatic merge failed; fix conflicts and then commit the result.
+
+```
+Ну и слово "CONFLICT" намекает на то, что у нас обнаружился конфликт. Текстовый редактор в этом месте нам покажет следующую картину:
+
+```md
+
+
+<<<<<<< HEAD
+
+=======
+Тут будет конфликт. Обязательно!!!
+>>>>>>> f34dacb7116176d7d387e0a6236db6c7da6059a1
+```
+
+До строчки, заполненной знаками "равно" мы имеем локальное содержимое, а после - содержимое на удалённом сервере. Решается всё просто: удаляем то, что нам не нравится (возможно это будет всё) и прописываем то, что хотим видеть на этом месте в проекте. После этого ```git add ... ``` ```git commit ... ``` и пушимся. Собственно конфликт будет исчерпан.
 ## Методики работы над проектом
 
 ### Gitflow
