@@ -1,9 +1,20 @@
 # Системы контроля версий
 
 ---
-## Источники:
-+ [Git - Book](https://git-scm.com/book/ru/v2/) - официальный сайт системы
+## Команды из статьи
 
++ ```git config --global user.name "{Your GitHub/Gitlab username}"```
++ ```git config --global user.email yourmail@example.com```
++ ```git config --list --show-origin```
++ ```git init```
++ ```git status```
++ ```git add .```
++ ```git commit -m "Comment"```
++ ```git log```
++ ```git log --pretty=oneline```
++ ```git log --graph```
++ ```git checkout <hash>```
++ ```git checkout master```
 ---
 
 То, что GIT - вещь нужная и полезная, расписывать особо не нужно. Данная заметка нужна для того, чтобы структурировать знания по этой системе и закрепить набор устоявшихся в отрасли практик её использования.
@@ -194,3 +205,10 @@ warning: in the working copy of 'example', LF will be replaced by CRLF the next 
 ```
 
 Это предупреждение вызвано тем, что в Linux и Windows немного по разному формляется конец строки.
+
+
+---
+## Источники:
++ [Git - Book](https://git-scm.com/book/ru/v2/) - официальный сайт системы
+
+---
