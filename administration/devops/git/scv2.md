@@ -189,4 +189,4 @@ upstream, see 'push.autoSetupRemote' in 'git help config'.
 CONFLICT (content): Merge conflict in roses.txt
 Automatic merge failed; fix conflicts and then commit the result.
 ```
-Об их разрешении будет информация уже в [следующей]() статье.
+Об их разрешении будет информация уже в [следующей](scv3.md) статье.
