@@ -17,6 +17,9 @@
 + ```git log --graph```
 + ```git checkout <hash>```
 + ```git checkout master```
++ ```git commit --amend```
++ ```git reset HEAD <file> [<file2> ...]``` → ```git restore --staged <file> [<file2> ...]```
++ ```git checkout -- <file> [<file2> ...]``` → ```git restore <file> [<file2> ...]```+ 
 ---
 
 То, что GIT - вещь нужная и полезная, что особо расписывать не имеет смысла. Данные заметки призваны структурировать знания по этой системе и закрепить набор устоявшихся практик её использования.
