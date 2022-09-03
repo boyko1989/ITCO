@@ -13,7 +13,7 @@
 
 ---
 
-О **Markdown** [здесь](https://guides.hexlet.io/ru/markdown/) и [здесь](https://paulradzkov.com/2014/markdown_cheatsheet/).
+О **Markdown** [здесь](https://guides.hexlet.io/ru/markdown/) и [здесь](https://gist.github.com/Jekins/2bf2d0638163f1294637).
 
 [План работы](organisation/plans.md)
 
