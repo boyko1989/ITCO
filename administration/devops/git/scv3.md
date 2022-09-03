@@ -7,7 +7,7 @@
 + ```git branch -a```
 + ```git branch <new_branch>```
 + ```git checkout <new_branch>```
-+ ```git branch -b```
++ ```git checkout -b```
 + ```git log --oneline --decorate```
 + ```git branch -D <deleted_branch>```
 ---
