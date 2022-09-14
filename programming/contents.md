@@ -9,7 +9,7 @@
     - Подготовка к работе
       - [Интерпретатор Python](python/001-py_interpreter.md)
       - [Документация](python/002-py_documentation.md)
-      - [Редакторы кода](python/03-py_editors.md)
+      - [Редакторы кода](python/003-py_editors.md)
       - [Система управления пакетами _pip_](python/004-py_pip.md)
       - [Виртуальное окружение](python/005-py_environment.md)
     - [Синтаксис Python](python/006-py_syntax.md)
