@@ -10,6 +10,7 @@
 + [Темы по программированию](programming/README.md)
 + [Математика](math/README.md)
 + [Английский язык](english/README.md)
++ [Практика](practice/README.md)
 
 ---
 
