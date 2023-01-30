@@ -20,7 +20,7 @@
 - [**COPY** - создание дубликатов объектов](standart/copy.md)
 - [**PPRINT** - "красивая печать" структур данных](standart/pprint.md)
 
-### Структуры данных
+### Алгоритмы
 
 - [**FUNCTOOLS** - инструменты для манипулирования функциями](standart/functools.md)
 - [**ITERTOOLS** - функции-итераторы](standart/itertools.md)
