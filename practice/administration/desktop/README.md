@@ -139,7 +139,7 @@ sudo echo -e 'tmpfs\t/tmp\ttmpfs\trw,nodev,nosuid,size=2G\t0\t0' >> /etc/fstab
 Дам большую команду, которая позволит установить все требуемые мне пакеты:
 
 ```shell
-sudo apt install software-properties-common apt-transport-https htop zip unzip tar curl wget rsync git mc tilda tilix tmux openssh-server vim bluefish mousepad okular speedcrunch rhythmbox libfuse2 zsh fonts-powerline qbittorrent
+sudo apt install software-properties-common apt-transport-https htop zip unzip tar curl wget rsync git mc tilda tilix tmux openssh-server vim bluefish mousepad okular speedcrunch rhythmbox libfuse2 zsh fonts-powerline qbittorrent snapd fuse binutils gstreamer1.0-pulseaudio
 ```
 
 #### Пакеты из сторонних репозиториев
@@ -203,6 +203,16 @@ sudo apt install -y code
 Заходим на сайт JetBrains в [раздел](https://www.jetbrains.com/toolbox-app/) загрузок продуктов. Выбираем нашу операционную систему и скачиваем архив \*.tar.gz . Затем распаковываем его командой `tar xvzf jetbrains-toolbox-xxx.tar.gz` В появившемся каталоге выполняем файл - это и есть JetBrains Toolbox.
 
 В трее появляется значок программы и рядом открывается окно. Там первым делом логинимся и проверяем в открывшейся вкладке браузера какие у нас лицензии. Теперь просто щёлкаем по кнопкам установить на нужные нам продукты.
+
+##### Viber
+
+wget http://download.cdn.viber.com/cdn/desktop/Linux/viber.deb
+
+#### Snap-пакеты
+
+VLC
+
+sudo snap install telegram-desktop
 
 ### Настройка окружения
 
