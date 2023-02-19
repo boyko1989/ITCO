@@ -37,7 +37,7 @@
 В первом случае, мы скачиваем текстовый ключ, преобразуем и отправляем в хранилище. Во втором же можем сразу скачать в хранилище. Ниже показаны оба варианта в вариациях с **wget** и **curl**:
 |Вид|Команды
 |:--:|:--|
-| Тестовый ключ |`wget -O- https://example.com/key/repo_signing.key | gpg --dearmor > /usr/share/keyrings/repo-archive-keyring.gpg`<br><br>`curl https://example.com/key/repo_signing.key | gpg --dearmor > /usr/share/keyrings/repo-archive-keyring.gpg`|
+| Текстовый ключ |`wget -O- https://example.com/key/repo_signing.key | gpg --dearmor > /usr/share/keyrings/repo-archive-keyring.gpg`<br><br>`curl https://example.com/key/repo_signing.key | gpg --dearmor > /usr/share/keyrings/repo-archive-keyring.gpg`|
 | Бинарный ключ |`wget -O /usr/share/keyrings/repo-archive-keyring.gpg https://example.com/key/repo_signing.key`<br><br>`curl -o /usr/share/keyrings/repo-archive-keyring.gpg https://example.com/key/repo_signing.key`|
 
 ### Получение GPG с сервера ключей
