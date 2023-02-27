@@ -1,14 +1,17 @@
 # Системы и технологии железа
 
-Linux 5.19.0-35-generic ehci_hcd
+<details>
+    <summary>Черновой список</summary>
 
-smbios
+- Linux 5.19.0-35-generic ehci_hcd
 
-dmi
+- smbios
 
-smp
+- dmi
 
-vsyscall32
+- smp
+
+- vsyscall32
 
 pci upgrade shadowing cdboot bootselect edd int13floppynec int13floppytoshiba int13floppy360 int13floppy1200 int13floppy720 int13floppy2880 int9keyboard int10video acpi usb biosbootspecification uefi
 
@@ -97,3 +100,15 @@ AT Translated Set 2 keyboard
 i8042
 
 ETPS/2 Elantech Touchpad
+
+</details>
+<br/>
+Список для данной заметки я выбрал из вывода команды `lshw`
+
+## Мелочи
+
+**Linux x.xx.x-xx-generic**: generic - это ядро без наложения патчей дистрибутива.
+
+## HCD и HCI
+
+Первый раз
