@@ -83,6 +83,7 @@
 Очень настоятельно советую в качестве домашнего каталога пользователя заводить пустой каталог. Всю же информацию лучше каким-либо образом резервировать и восстанавливать по мере необходимости. У меня произошёл достаточно неприятный эффект, который отнял у меня много времени. После примонтирования моего домашнего каталога, который находился у меня на другом диске, установленный Google Chrome запускался, но не отображался. Что я только не делал, но проблему ничего не решало. В конце концов я сделал _rsync_-ом бэкап и почистил домашнюю папку.
 
 Конечно, можно было очистить только каталоги `~/.cache`, `~/.config` и `~/.local`, чтобы потом, для восстановления привычного реима работы программ, закидывать в `~/.config` файлы интересующих пакетов, но я решил заодно навести порядок.
+
 ### Настройка сети
 
 По умолчанию Xubuntu находит в сети DHCP сервер и запрашивает у него IP-адрес. Но мы установим статичесий адрес. Причём сделаем это и для Ethernet интерфейса и для Wi-Fi. В Xubuntu сеть настраивается через Netplan, поэтому открываем файл `/etc/netplan/config.yaml`. Прописываем в нём следующую конфигурацию:
@@ -220,7 +221,7 @@ sudo echo -e 'tmpfs\t/tmp\ttmpfs\trw,nodev,nosuid,size=2G\t0\t0' >> /etc/fstab
 Дам большую команду, которая позволит установить все требуемые мне пакеты:
 
 ```shell
-sudo apt install -y software-properties-common apt-transport-https htop zip unzip tar curl wget rsync git mc tilda tilix tmux openssh-server vim bluefish mousepad okular speedcrunch rhythmbox libfuse2 zsh fonts-powerline qbittorrent snapd fuse binutils gstreamer1.0-pulseaudio nmap arp-scan geary
+sudo apt install -y software-properties-common apt-transport-https htop zip unzip tar curl wget rsync git mc tilda tilix tmux openssh-server vim bluefish mousepad okular speedcrunch rhythmbox libfuse2 zsh fonts-powerline qbittorrent snapd fuse binutils gstreamer1.0-pulseaudio nmap arp-scan geary blueman bluetooth bluez bluez-tools
 ```
 
 #### Пакеты из сторонних репозиториев
