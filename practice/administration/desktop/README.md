@@ -221,7 +221,7 @@ sudo echo -e 'tmpfs\t/tmp\ttmpfs\trw,nodev,nosuid,size=2G\t0\t0' >> /etc/fstab
 Дам большую команду, которая позволит установить все требуемые мне пакеты:
 
 ```shell
-sudo apt install -y software-properties-common apt-transport-https htop zip unzip tar curl wget rsync git mc tilda tilix tmux openssh-server vim bluefish mousepad okular speedcrunch rhythmbox libfuse2 zsh fonts-powerline qbittorrent snapd fuse binutils gstreamer1.0-pulseaudio nmap arp-scan geary blueman bluetooth bluez bluez-tools
+sudo apt install -y software-properties-common apt-transport-https htop zip unzip tar curl wget rsync git mc tilda tilix tmux openssh-server vim bluefish mousepad okular speedcrunch rhythmbox libfuse2 zsh fonts-powerline qbittorrent snapd fuse binutils gstreamer1.0-pulseaudio nmap arp-scan geary blueman bluetooth bluez bluez-tools ristretto
 ```
 
 #### Пакеты из сторонних репозиториев
