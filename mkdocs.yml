@@ -1,0 +1,7 @@
+site_name: База знаний по информационным технологиям
+
+nav:
+    - Главная: README.md
+
+site_author:
+    p_boyko
