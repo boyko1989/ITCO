@@ -3,3 +3,4 @@
 [К содержанию верхнего раздела](../README.md)
 
 - [Linux с графической подсистемой](desktop/README.md)
+- [Домашний сервер](homeserver/README.md)
