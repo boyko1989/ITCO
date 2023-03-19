@@ -1,7 +1,14 @@
 site_name: База знаний по информационным технологиям
 
 nav:
-    - Главная: README.md
+    - Организационные темы: organisation/README.md
+    - Практика: practice/README.md
+    - Теория: theory/README.md
+    - Темы по администрированию: administration/README.md
+    - Темы по программированию: programming/README.md
+    - Математика: math/README.md
+    - Английский язык: english/README.md
+    - Основы электроники: toe/README.md
 
 site_author:
     p_boyko
