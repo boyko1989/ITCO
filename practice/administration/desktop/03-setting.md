@@ -210,13 +210,27 @@ sudo apt install -y code
 
 #### Viber
 
-wget http://download.cdn.viber.com/cdn/desktop/Linux/viber.deb
+Скачиваем и устанавливаем deb-пакет:
+
+```shell
+cd /tmp && wget http://download.cdn.viber.com/cdn/desktop/Linux/viber.deb
+
+sudo dpkg -i viber.deb
+```
 
 ### Snap-пакеты
 
-VLC
+В виде Snap-пакетов я устанавливаю VLC и Telegram:
 
-sudo snap install telegram-desktop
+```shell
+sudo snap install vlc telegram-desktop
+```
+
+Обновллять пакеты можно следующей командой:
+
+```shell
+sudo snap refresh
+```
 
 ## Настройка окружения
 
@@ -330,4 +344,4 @@ xrandr \
 
 ### Отключение блокировки экрана
 
-`xset -dpms && xset s off`
+Для этого в `.*rc` файл выбранного шелла добавить строчку `xset -dpms && xset s off`
