@@ -16,6 +16,7 @@
 - [Математика](math/README.md)
 - [Английский язык](english/README.md)
 - [Основы электроники](toe/README.md)
+- [Черновик](draft.md)
 
 ---
 

@@ -10,4 +10,18 @@
 
 Для подключения переферии существует подсистема ввода/вывода (high speed i/o interface).
 
+https://community.fs.com/ru/blog/pcie-card-selection-guide.html
+
+<!--
+- lm324
+- MX BIOS
+- NH82801GB
+- Контроллер графики и памяти Intel® 82G31
+- Контроллер графики и памяти Intel® 82G31
+- W83627DHG-A
+- GD75232DW
+- P0903BDG MOSFET
+- Сетевая карта Orient XWT-R81PEV2 1 x RJ45
+-->
+
 ## Видеокарта
