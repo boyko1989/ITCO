@@ -9,6 +9,7 @@ nav:
     - Математика: math/README.md
     - Английский язык: english/README.md
     - Основы электроники: toe/README.md
+    - Диалоги с нейронкой: dialogs/README.md
 
 site_author:
     p_boyko
