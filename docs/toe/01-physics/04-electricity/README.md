@@ -7,6 +7,8 @@
 - []()
 - []()
 
-[Электрическое поле](01-electric/README.md)
-[Магнитное поле](02-magnetic/README.md)
-[Электромагнитная индукция](03-electromagnetic/README.md)
+---
+
+- [Электрическое поле](../01-electric/README.md)
+- [Магнитное поле](../02-magnetic/README.md)
+- [Электромагнитная индукция](../03-electromagnetic/README.md)
