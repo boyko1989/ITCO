@@ -14,12 +14,12 @@
 
 - [Организационные темы](organisation/README.md)
 - [Практика](practice/README.md)
-- [Теория](theory/README.md)
-- [Темы по администрированию](administration/README.md)
-- [Темы по программированию](programming/README.md)
 - [Математика](math/README.md)
-- [Английский язык](english/README.md)
 - [Основы электроники](toe/README.md)
+- [Информаткика](informatics/README.md)
+- [Администрирование](administration/README.md)
+- [Программирование](programming/README.md)
+- [Английский язык](english/README.md)
 - [Диалоги с нейронкой](dialogs/README.md)
 
 ---
